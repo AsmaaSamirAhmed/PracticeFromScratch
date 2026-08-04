@@ -11,7 +11,7 @@ public class CheckBoxTests extends TestCase {
         bot.navigateTo("http://the-internet.herokuapp.com/checkboxes");
         herokuApp.CheckCheckBox1();
         herokuApp.AssertBothChecked();
-        //trigger github actions
+
 
     }
 }
