@@ -39,7 +39,7 @@ public abstract class TestCase {
         ChromeOptions options = new ChromeOptions();
 
         // Essential execution mode
-//        options.addArguments("--headless");
+       options.addArguments("--headless");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");
