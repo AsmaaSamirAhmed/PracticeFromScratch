@@ -21,4 +21,4 @@ jobs:
         cache: maven
 
     - name: Run Maven tests
-      run: mvn -B clean test -f PracticeFromScratch/pom.xml
+      run: mvn -B clean test
