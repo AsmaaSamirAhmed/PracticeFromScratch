@@ -83,6 +83,20 @@ public class ActionsBot {
             return true;
         });
     }
+    public String getURL() {
+        return wait.until(d -> {
+            String currentUrl = d.getCurrentUrl();
+            System.out.println("Current URL: " + currentUrl);
+            return currentUrl;
+        });
+    }
+    public String getTitle() {
+        return wait.until(d -> {
+            String title = d.getTitle();
+            System.out.println("Current Title: " + title);
+            return title;
+        });
+    }
 
     public void quit() {
         wait.until(d -> {
