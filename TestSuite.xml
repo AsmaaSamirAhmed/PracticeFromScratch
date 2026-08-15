@@ -5,7 +5,7 @@
     <test name="AutomatedPractice Tests">
         <classes>
             <!-- Add all your test classes here -->
-            <class name="AutomatestPractice.GoogleBasicTests" />
+            <class name="AutomatestPractice.DuckDuckGoTests" />
         </classes>
     </test>
 
