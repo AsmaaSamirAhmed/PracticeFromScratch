@@ -32,7 +32,7 @@ public abstract class TestCase {
                 break;
         }
         wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(50))
+                .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofMillis(250))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(NotFoundException.class)
@@ -52,8 +52,14 @@ public abstract class TestCase {
         ChromeOptions options = new ChromeOptions();
 
         // Essential execution mode (use new headless mode if available)
-       // options.addArguments("--headless=new");
-       // options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        // Override default headless UA (contains "HeadlessChrome") with a normal desktop Chrome UA.
+// Without this, the target site detects headless mode and serves a different page
+// (no results / block page), causing NoSuchElementException on result-title-a.
+// or derive it dynamically via navigator.userAgent instead of hardcoding.
+        options.addArguments("--disable-blink-features=AutomationControlled");
+        options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");
