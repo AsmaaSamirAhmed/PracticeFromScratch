@@ -64,7 +64,7 @@ public ActionsBot typeWithSendKeys(By locator, String text) {
             String linkText = d.findElement(locator).getDomAttribute("href");
             System.out.println("Link text: " + linkText);
             Assert.assertTrue(linkText.contains(url), "The link does not contain the expected URL: " + url);
-            return linkText != null && linkText.contains(url);
+            return linkText;
         });
     }
 
