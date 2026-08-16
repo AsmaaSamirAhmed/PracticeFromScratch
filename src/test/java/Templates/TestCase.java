@@ -52,8 +52,8 @@ public abstract class TestCase {
         ChromeOptions options = new ChromeOptions();
 
         // Essential execution mode (use new headless mode if available)
-     //   options.addArguments("--headless=new");
-      //  options.addArguments("--disable-gpu");
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");
