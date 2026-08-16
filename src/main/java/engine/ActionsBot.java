@@ -61,7 +61,11 @@ public ActionsBot typeWithSendKeys(By locator, String text) {
 
     public void checkLink(By locator, String url) {
         wait.until(d -> {
-            System.out.println(d.getPageSource());
+            String pageSource = d.getPageSource();
+            System.out.println("Contains result-title-a: " + pageSource.contains("result-title-a"));
+            System.out.println("Contains 'No results': " + pageSource.toLowerCase().contains("no results"));
+            System.out.println("Page title: " + d.getTitle());
+            System.out.println("Current URL: " + d.getCurrentUrl());
             String linkText = d.findElement(locator).getDomAttribute("href");
             System.out.println("Link text: " + linkText);
             Assert.assertTrue(linkText.contains(url), "The link does not contain the expected URL: " + url);
