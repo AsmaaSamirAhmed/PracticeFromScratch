@@ -32,7 +32,7 @@ public abstract class TestCase {
                 break;
         }
         wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(5))
+                .withTimeout(Duration.ofSeconds(50))
                 .pollingEvery(Duration.ofMillis(250))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(NotFoundException.class)
@@ -52,8 +52,8 @@ public abstract class TestCase {
         ChromeOptions options = new ChromeOptions();
 
         // Essential execution mode (use new headless mode if available)
-        options.addArguments("--headless=new");
-        options.addArguments("--disable-gpu");
+       // options.addArguments("--headless=new");
+       // options.addArguments("--disable-gpu");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");

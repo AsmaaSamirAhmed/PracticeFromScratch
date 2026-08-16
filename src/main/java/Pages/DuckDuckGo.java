@@ -8,7 +8,7 @@ public class DuckDuckGo {
     By logo = By.xpath("(//a[@title='Learn about DuckDuckGo']//img)[2]");
     By SearchInput = By.id("searchbox_input");
     By SecondLink = By.xpath("(//a[@data-testid='result-title-a'])[2]");
-    By FirstLink = By.xpath("(//a[@data-testid='result-extras-url-link'])[1]");
+    By FirstLink = By.xpath("(//a[@data-testid='result-title-a'])[1]");
     public DuckDuckGo(ActionsBot actionsBot) {
         this.actionsBot = actionsBot;
     }
