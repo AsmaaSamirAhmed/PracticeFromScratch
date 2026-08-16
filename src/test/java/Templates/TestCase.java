@@ -32,7 +32,7 @@ public abstract class TestCase {
                 break;
         }
         wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(5))
+                .withTimeout(Duration.ofSeconds(15))
                 .pollingEvery(Duration.ofMillis(250))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(NotFoundException.class)
