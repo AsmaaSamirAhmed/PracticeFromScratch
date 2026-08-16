@@ -34,6 +34,7 @@ public abstract class TestCase {
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(5))
                 .pollingEvery(Duration.ofMillis(250))
+                .ignoring(NoSuchElementException.class)
                 .ignoring(NotFoundException.class)
                 .ignoring(ElementNotInteractableException.class)
                 .ignoring(AssertionError.class)
@@ -50,8 +51,9 @@ public abstract class TestCase {
     public static ChromeOptions chromeOptions() {
         ChromeOptions options = new ChromeOptions();
 
-        // Essential execution mode
-        options.addArguments("--headless");
+        // Essential execution mode (use new headless mode if available)
+     //   options.addArguments("--headless=new");
+      //  options.addArguments("--disable-gpu");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");
