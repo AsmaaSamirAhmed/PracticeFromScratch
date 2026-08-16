@@ -18,7 +18,7 @@ public class DuckDuckGo {
     }
 
     public DuckDuckGo search(String text) {
-        actionsBot.type(SearchInput, text);
+        actionsBot.typeWithSendKeys(SearchInput, text);
         return this;
     }
 

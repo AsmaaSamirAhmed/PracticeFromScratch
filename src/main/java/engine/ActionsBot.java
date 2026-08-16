@@ -1,6 +1,7 @@
 package engine;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
@@ -40,7 +41,14 @@ public class ActionsBot {
         });
         return this;
     }
-
+public ActionsBot typeWithSendKeys(By locator, String text) {
+        wait.until(d ->{
+            d.findElement(locator).sendKeys(text, Keys.ENTER);
+            System.out.println("Text entered using sendKeys: " + text);
+            return true;
+        });
+        return this;
+}
     public void checkLogo(By locator) {
         wait.until(d -> {
             boolean isLogoDisplayed = d.findElement(locator).isDisplayed();
@@ -52,6 +60,9 @@ public class ActionsBot {
 
     public void checkLink(By locator, String url) {
         wait.until(d -> {
+            System.out.println("test");
+            boolean isLinkDisplayed = d.findElement(locator).isDisplayed();
+            System.out.println("Link is displayed: " + isLinkDisplayed);
             String linkText = d.findElement(locator).getAttribute("href");
             System.out.println("Link text: " + linkText);
             Assert.assertTrue(linkText.contains(url), "The link does not contain the expected URL: " + url);

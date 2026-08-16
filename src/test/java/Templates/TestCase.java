@@ -38,6 +38,7 @@ public abstract class TestCase {
                 .ignoring(ElementNotInteractableException.class)
                 .ignoring(AssertionError.class)
                 .ignoring(StaleElementReferenceException.class);
+
         bot = new ActionsBot(wait);
     }
 
@@ -50,7 +51,7 @@ public abstract class TestCase {
         ChromeOptions options = new ChromeOptions();
 
         // Essential execution mode
-        options.addArguments("--headless");
+       // options.addArguments("--headless");
 
         // CI/CD-specific stability
         options.addArguments("--no-sandbox");
